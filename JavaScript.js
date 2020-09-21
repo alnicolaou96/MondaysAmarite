@@ -1,4 +1,6 @@
 ﻿var day;
+var monday = false;
+
 //time api
 fetch("https://world-time2.p.rapidapi.com/ip", {
     "method": "GET",
@@ -17,3 +19,12 @@ fetch("https://world-time2.p.rapidapi.com/ip", {
     .catch(err => {
         console.log(err);
     });
+
+
+//allows 900 milliseconds to pass to run code to give the api time to fetch the time
+window.setTimeout(function () {
+    console.log(day);
+    if (day === 1) {//checks if it is monday
+        document.getElementById("monday").innerHTML = "ugh another monday";
+    }
+}, 900);
